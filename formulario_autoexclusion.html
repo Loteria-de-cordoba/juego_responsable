@@ -78,7 +78,8 @@
                 <iframe id="iframeTou" style="width: 100%; height: 500px;">
                     <!-- <object type="application/pdf"
                         data="https://loteria-de-cordoba.github.io/juego_responsable/FORMULARIO%20UNICO%20AUTOEXCLUSION.pdf"
-                        width="100%" height="500" style="height: 85vh;">No Support</object> --> <div id="example1"></div>
+                        width="100%" height="500" style="height: 85vh;">No Support</object> --> 
+                        <!-- <div id="example1"></div> -->
                 </iframe>
                
 
@@ -100,22 +101,22 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-<script src="pdfobject.js"></script>
-<script>PDFObject.embed("https://loteria-de-cordoba.github.io/juego_responsable/FORMULARIO%20UNICO%20AUTOEXCLUSION.pdf", "#example1");</script>
+<!-- <script src="pdfobject.js"></script>
+<script>PDFObject.embed("https://loteria-de-cordoba.github.io/juego_responsable/FORMULARIO%20UNICO%20AUTOEXCLUSION.pdf", "#example1");</script> -->
 
 <script>
 
 
 
-    // // A $( document ).ready() block.
-    // $(document).ready(function () {
-    //     OpenTermsOfUsePopup();
-    //     console.log("ready!");
-    // });
+    // A $( document ).ready() block.
+    $(document).ready(function () {
+        OpenTermsOfUsePopup();
+        console.log("ready!");
+    });
 
-    // function OpenTermsOfUsePopup() {
-    //     $('#iframeTou').attr('src', 'https://loteria-de-cordoba.github.io/juego_responsable/FORMULARIO%20UNICO%20AUTOEXCLUSION.pdf');
-    //     $('#divTermsOfUse').modal("show");
-    //     return false;
-    // }
+    function OpenTermsOfUsePopup() {
+        $('#iframeTou').attr('src', 'https://loteria-de-cordoba.github.io/juego_responsable/FORMULARIO%20UNICO%20AUTOEXCLUSION.pdf');
+        $('#divTermsOfUse').modal("show");
+        return false;
+    }
 </script>
