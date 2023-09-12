@@ -66,7 +66,7 @@
                     <!-- <div class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" src="https://loteria-de-cordoba.github.io/juego_responsable/FORMULARIO%20UNICO%20AUTOEXCLUSION.pdf"> -->
 
- <embed src="https://loteria-de-cordoba.github.io/juego_responsable/FORMULARIO%20UNICO%20AUTOEXCLUSION.pdf" frameborder="0" width="100%" height="400px">
+ <!-- <embed src="https://loteria-de-cordoba.github.io/juego_responsable/FORMULARIO%20UNICO%20AUTOEXCLUSION.pdf" frameborder="0" width="100%" height="400px"> -->
     <!-- <object type="application/pdf"
     data="https://loteria-de-cordoba.github.io/juego_responsable/FORMULARIO%20UNICO%20AUTOEXCLUSION.pdf"
     width="100%" height="500" style="height: 85vh;">No Support</object> -->
@@ -74,7 +74,9 @@
                         <!-- </iframe>
                     </div> -->
 
-                   
+                    <iframe id="iframeTou" style="width: 100%; height: 500px;">
+                        <p>It appears your web browser doesn't support iframes.</p>
+                   </iframe>
 
                 </div>
                 <div class="modal-footer">
@@ -91,3 +93,21 @@
 </body>
 
 </html>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+
+ 	
+
+// A $( document ).ready() block.
+$( document ).ready(function() {
+    OpenTermsOfUsePopup();
+    console.log( "ready!" );
+});
+
+function OpenTermsOfUsePopup() {
+    $('#iframeTou').attr('src', 'Privacy_Policy/H2eEile%20-Terms-of-Use.pdf#page=1&zoom=100');
+    $('#divTermsOfUse').modal("show");
+    return false;
+}
+</script>
