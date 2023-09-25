@@ -15,13 +15,13 @@
         <!-- <img src="..." class="card-img-top" alt="..."> -->
         <div class="card-body">
             <h5 class="card-title">Ejemplo - Plataforma Operador </h5>
-            <p class="card-text" >En la plataforma de los operadores el apartado de juego responsable debera tener los siguientes apartados</p>
+            <p class="card-text">En la plataforma de los operadores el apartado de juego responsable debera tener los
+                siguientes apartados</p>
             <!-- Button trigger modal -->
 
             <div class="text-center mt-5">
 
                 <div class="d-grid gap-2">
-
 
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                         data-bs-target="#exampleModalPermanente">
@@ -43,9 +43,14 @@
                         Juego Responsable
                     </button>
 
-                    <button type="button" class="btn btn-secondary mt-3" data-bs-toggle="modal"
+                    <button type="button" class="btn btn-danger mt-3" data-bs-toggle="modal"
                         data-bs-target="#exampleModalJuegoAutorizado">
                         Juego Autorizado
+                    </button>
+
+                    <button type="button" class="btn btn-secondary mt-3" data-bs-toggle="modal"
+                        data-bs-target="#exampleModalLogo_18">
+                        Logo +18
                     </button>
 
                 </div>
@@ -136,41 +141,61 @@
         </div>
     </div>
 
-     <!-- Modal -->
-     <div class="modal fade modal-xl" id="exampleModalJuegoResponsable" tabindex="-1" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-     <div class="modal-dialog">
-         <div class="modal-content">
-             <div class="modal-header">
-                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-             </div>
-             <div class="modal-body">
-                 <div id="includeHtmlJuegoResponsable"></div>
-             </div>
-             <div class="modal-footer">
-                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-             </div>
-         </div>
-     </div>
- </div>
+    <!-- Modal -->
+    <div class="modal fade modal-xl" id="exampleModalJuegoResponsable" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="includeHtmlJuegoResponsable"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <!-- Modal -->
-  <div class="modal fade modal-xl" id="exampleModalJuegoAutorizado" tabindex="-1" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-              <div id="includeHtmlJuegoAutorizado"></div>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          </div>
-      </div>
-  </div>
-</div>
+    <!-- Modal -->
+    <div class="modal fade modal-xl" id="exampleModalJuegoAutorizado" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="includeHtmlJuegoAutorizado"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade modal-xl" id="exampleModalLogo_18" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="includeHtmlLogo_18"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 </body>
 
@@ -194,6 +219,7 @@
             $("#includeHtmlTest").load("test_comportamiento.html");
             $("#includeHtmlJuegoResponsable").load("informacion_general_jr.html");
             $("#includeHtmlJuegoAutorizado").load("informacion_general_ja.html");
+            $("#includeHtmlLogo_18").load("logo+18.html");
         });
 
 
