@@ -6,6 +6,7 @@ error_reporting(E_ALL);
 
 
 $curl = curl_init();
+//die(var_dump($curl));
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://dev-gwxtj8f3wl4qq831.us.auth0.com/oauth/token",
@@ -22,7 +23,6 @@ curl_setopt_array($curl, array(
 ));
 
 $response = curl_exec($curl);
-die(var_dump($response));
 $err = curl_error($curl);
 
 curl_close($curl);
@@ -30,9 +30,14 @@ curl_close($curl);
 if ($err) {
   echo "cURL Error #:" . $err;
 } else {
-  echo $response;
+  //die(var_dump($response));
+  echo json_decode($response);
 }
 
+
+$array = json_decode($response);
+
+$token = $array->{'token_type'} . ' ' . $array->{'access_token'};
 
 // Response
 // {
@@ -40,7 +45,7 @@ if ($err) {
 //     "token_type": "Bearer"
 // }
 
-die();
+// die();
 
 $curl = curl_init();
 
@@ -53,7 +58,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_HTTPHEADER => array(
-    "authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IklaUlozUTUzSWxNc2xkNHJ5dkkyaCJ9.eyJpc3MiOiJodHRwczovL2Rldi1nd3h0ajhmM3dsNHFxODMxLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJGWHk1akcyUW5ET3UxQjF1WlUwbExGbHRIdm5IRjduQ0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9qb2xhcGkubG90ZXJpYWNiYS5jb20uYXIvZ2FtYmxlcnMvIiwiaWF0IjoxNjk2NzAxMDY4LCJleHAiOjE2OTY3ODc0NjgsImF6cCI6IkZYeTVqRzJRbkRPdTFCMXVaVTBsTEZsdEh2bkhGN25DIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.KI26xAHAEq0jIejirvJQGxBcpQ9AhADFzImteIT-B8o5QZjqvcRQ7btD4mJpKckV8YECxl3xnj9Ybp8liwmoCWq71D75yHF04KuU8xsYt1f-LTvFeapmIljfmtYGBy0ycKieXOqC3JZupBm4OL5zFR0zAR8bMJV6tyZQ-oXJs5193t1fLmM5792lJvHMYMazUmu3YS2KBbZFQvE9U-O3Rh0IsFXS6EwqBEvbSIlrfptGhmtdGXBtZnK-vlllFPhaWU_O6eR1W3ubHQGU9CrYMmtX-e8kh4M2DGAHm8bSZ_oUdMlFy7cPDm4TQHldbbYv4mJT2vS-z9wd3yk1B9cXJw"
+    "authorization: " . $token
   ),
 ));
 
