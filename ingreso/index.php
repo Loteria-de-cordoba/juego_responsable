@@ -1,12 +1,15 @@
 <?php
 
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
+// ini_set('display_errors', '1');
+// ini_set('display_startup_errors', '1');
+// error_reporting(E_ALL);
 
 
 $curl = curl_init();
-//die(var_dump($curl));
+
+curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://dev-gwxtj8f3wl4qq831.us.auth0.com/oauth/token",
@@ -23,6 +26,7 @@ curl_setopt_array($curl, array(
 ));
 
 $response = curl_exec($curl);
+// die(var_dump($response));
 $err = curl_error($curl);
 
 curl_close($curl);
@@ -34,7 +38,7 @@ if ($err) {
   echo json_decode($response);
 }
 
-
+die(var_dump($response));
 $array = json_decode($response);
 
 $token = $array->{'token_type'} . ' ' . $array->{'access_token'};
@@ -50,13 +54,19 @@ $token = $array->{'token_type'} . ' ' . $array->{'access_token'};
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://path_to_your_api/",
+  CURLOPT_URL => "https://homolog.loteriacba.com.ar/",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => "{ 
+                            'documentType': 'DNI', 
+                            'documentNumber': '21400329', 
+                            'gender': 'M', 
+                            'dob': '1969-12-29' 
+                          }",
   CURLOPT_HTTPHEADER => array(
     "authorization: " . $token
   ),
