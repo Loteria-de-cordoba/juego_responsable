@@ -1,2 +1,3 @@
 juego_responsable.code-workspace
-\ingreso\index.php
+/ingreso/index.php
+/ingreso/token.txt
