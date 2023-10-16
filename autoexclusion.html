@@ -63,8 +63,10 @@
                     <iframe id="miIframe"
                         src="https://loteria-de-cordoba.github.io/juego_responsable/tc_autoexclusion_permanente.html"
                         width="100%" height="400"></iframe>
-                    <button type="button" id="botonEnviar" class="btn btn-primary" disabled>Estoy de acuerdo</button>
-                    <button onclick="report()">Get Coords</button>
+                    <!-- <button type="button" id="botonEnviar" class="btn btn-primary" disabled>Estoy de acuerdo</button> -->
+                    <button type="button" id="botonEnviar" class="btn btn-primary">Estoy de acuerdo</button>
+                   
+                    <!-- <button onclick="report()">Get Coords</button> -->
                 </form>
             </div>
         </div>
@@ -75,42 +77,47 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
 
-        function report() {
-            var scrollPosition = $('#miIframe').contents().find('body').scrollTop();
-            var iframeHeight = $('#miIframe').contents().find('body').height();
-            var iframeScrollHeight = $('#miIframe').contents().find('body').prop('scrollHeight');
-            var iframeScrollHeight2 = $('#miIframe').contents().find('body').scrollHeight();
-            var iframeScrollHeight3 = $('#miIframe').contents().find('body').context.scrollHeight();
+        // function report() {
+        //     var scrollPosition = $('#miIframe').contents().find('body').scrollTop();
+        //     var iframeHeight = $('#miIframe').contents().find('body').height();
+        //     var iframeScrollHeight = $('#miIframe').contents().find('body').prop('scrollHeight');
+        //     var iframeScrollHeight2 = $('#miIframe').contents().find('body').scrollHeight();
+        //     var iframeScrollHeight3 = $('#miIframe').contents().find('body').scrollHeight();
 
-            
-            
+        //     // var scrollHeight = $(document).height();
+        //     // var scrollPosition = $(window).height() + $(window).scrollTop();
+        //     // if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
+        //     //     // when scroll to bottom of the page
+        //     // }
 
-            alert(scrollPosition + '-' + iframeHeight + '-' + iframeScrollHeight +'-'+iframeScrollHeight2 +'-'+iframeScrollHeight3);
-        }
+
+
+
+        //     alert(scrollPosition + '-' + iframeHeight + '-' + iframeScrollHeight + '-' + iframeScrollHeight2 + '-' + iframeScrollHeight3);
+        // }
 
         $(document).ready(function () {
 
-            var iframe = document.getElementById("miIframe");
+            // var iframe = document.getElementById("miIframe");
 
-            iframe.addEventListener("load", function () {
-                var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-                var iframeBody = iframeDocument.body;
+            // iframe.addEventListener("load", function () {
+            //     var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+            //     var iframeBody = iframeDocument.body;
 
-                $(iframeBody).on('scroll', function () {
+            //     $(iframeBody).on('scroll', function () {
 
-                    var scrollPosition = $(this).scrollTop();
-                    var iframeHeight = $(this).height();
-                    var iframeScrollHeight = $(this).prop('scrollHeight');
+            //         var scrollPosition = $(this).scrollTop();
+            //         var iframeHeight = $(this).height();
+            //         var iframeScrollHeight = $(this).prop('scrollHeight');
 
-                    // Habilitar el botón cuando se llega al final del scrollbar
-                    //if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
-                    console.log(scrollPosition, iframeHeight, iframeScrollHeight)
-                    if (scrollPosition + iframeHeight >= iframeScrollHeight) {
-
-                        $("#botonEnviar").prop("disabled", false);
-                    }
-                });
-            });
+            //         // Habilitar el botón cuando se llega al final del scrollbar
+            //         //if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
+            //         console.log(scrollPosition, iframeHeight, iframeScrollHeight)
+            //         if (scrollPosition + iframeHeight >= iframeScrollHeight) {
+            //             $("#botonEnviar").prop("disabled", false);
+            //         }
+            //     });
+            // });
 
 
             $("#botonEnviar").click(function () {
