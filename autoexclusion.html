@@ -74,17 +74,21 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
-          function report() {
-                var scrollPosition = $('#miIframe').contents().find('body').scrollTop();
-                var iframeHeight = $('#miIframe').contents().find('body').height();
-                var iframeScrollHeight = $('#miIframe').contents().find('body').prop('scrollHeight');
-                alert(scrollPosition +'-'+ iframeHeight +'-'+ iframeScrollHeight);
-            }
+
+        function report() {
+            var scrollPosition = $('#miIframe').contents().find('body').scrollTop();
+            var iframeHeight = $('#miIframe').contents().find('body').height();
+            var iframeScrollHeight = $('#miIframe').contents().find('body').prop('scrollHeight');
+            var iframeScrollHeight2 = $('#miIframe').contents().find('body').scrollHeight();
+            var iframeScrollHeight3 = $('#miIframe').contents().find('body').context.scrollHeight();
+
+            
+            
+
+            alert(scrollPosition + '-' + iframeHeight + '-' + iframeScrollHeight .+'-'+iframeScrollHeight2 .+'-'+iframeScrollHeight3);
+        }
 
         $(document).ready(function () {
-
-          
-
 
             var iframe = document.getElementById("miIframe");
 
