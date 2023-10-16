@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Autocompletado</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">FORMULARIO DE AUTOEXCLUSIÓN</h1> <!-- Título del formulario -->
+                <form id="miFormulario">
+
+
+                    <div class="form-group">
+                        <label for="scan">Scan</label>
+                        <input type="text" class="form-control" id="scan" placeholder="Ingrese el string aquí">
+                    </div>
+                    <div class="form-group">
+                        <label for="numeroTramite">Número de Trámite</label>
+                        <input type="text" class="form-control" id="numeroTramite">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" class="form-control" id="apellido">
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" id="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="sexo">Sexo</label>
+                        <input type="text" class="form-control" id="sexo">
+                    </div>
+                    <div class="form-group">
+                        <label for="dni">Número de DNI</label>
+                        <input type="text" class="form-control" id="dni">
+                    </div>
+                    <div class="form-group">
+                        <label for="numeroEjemplar">Número de Ejemplar</label>
+                        <input type="text" class="form-control" id="numeroEjemplar">
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                        <input type="text" class="form-control" id="fechaNacimiento">
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaCaducidad">Fecha de Caducidad</label>
+                        <input type="text" class="form-control" id="fechaCaducidad">
+                    </div>
+                    <iframe id="miIframe"
+                        src="https://loteria-de-cordoba.github.io/juego_responsable/tc_autoexclusion_permanente.html"
+                        width="100%" height="400"></iframe>
+                    <button type="button" id="botonEnviar" class="btn btn-primary" disabled>Estoy de acuerdo</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            var iframe = document.getElementById("miIframe");
+
+            iframe.addEventListener("load", function () {
+                var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+                var iframeBody = iframeDocument.body;
+
+                $(iframeBody).on('scroll', function () {
+                    var scrollPosition = $(this).scrollTop();
+                    var iframeHeight = $(this).height();
+                    var iframeScrollHeight = $(this).prop('scrollHeight');
+
+                    // Habilitar el botón cuando se llega al final del scrollbar
+                    if (scrollPosition + iframeHeight >= iframeScrollHeight) {
+                        $("#botonEnviar").prop("disabled", false);
+                    }
+                });
+            });
+
+
+            $("#botonEnviar").click(function () {
+                Swal.fire({
+                    title: 'Confirmación',
+                    text: '¿Estás de acuerdo?',
+                    icon: 'info',
+                    showCancelButton: true,
+                    confirmButtonText: 'Sí, estoy de acuerdo',
+                    cancelButtonText: 'No',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // $("#miIframe").attr('src', 'https://loteria-de-cordoba.github.io/juego_responsable/tc_autoexclusion_permanente.html');
+                        console.log("aceptado");
+                    }
+                });
+            });
+
+
+            $("#scan").on('input', function () {
+                var dataString = $(this).val();
+                var dataArray = dataString.split('"');
+
+                $("#numeroTramite").val(dataArray[0]);
+                $("#apellido").val(dataArray[1]);
+                $("#nombre").val(dataArray[2]);
+                $("#sexo").val(dataArray[3]);
+                $("#dni").val(dataArray[4]);
+                $("#numeroEjemplar").val(dataArray[5]);
+                $("#fechaNacimiento").val(dataArray[6]);
+                $("#fechaCaducidad").val(dataArray[7]);
+            });
+
+          
+        });
+    </script>
+</body>
+
+</html>
