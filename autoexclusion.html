@@ -75,8 +75,10 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
           function report() {
-                var frame_top = $('#miIframe').contents().find('body').height();
-                alert(frame_top);
+                var scrollPosition = $('#miIframe').contents().find('body').scrollTop();
+                var iframeHeight = $('#miIframe').contents().find('body').height();
+                iframeHeight = $('#miIframe').contents().find('body').prop('scrollHeight');
+                alert(scrollPosition, +'-'+ iframeHeight +'-'+iframeHeight);
             }
 
         $(document).ready(function () {
