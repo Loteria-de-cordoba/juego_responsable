@@ -64,6 +64,7 @@
                         src="https://loteria-de-cordoba.github.io/juego_responsable/tc_autoexclusion_permanente.html"
                         width="100%" height="400"></iframe>
                     <button type="button" id="botonEnviar" class="btn btn-primary" disabled>Estoy de acuerdo</button>
+                    <button onclick="report()">Get Coords</button>
                 </form>
             </div>
         </div>
@@ -75,11 +76,16 @@
     <script>
 
         $(document).ready(function () {
-            
+
+            function report() {
+                var frame_top = $('#miIframe').contents().find('body').scrollTop();
+                alert(frame_top);
+            }
+
 
             var iframe = document.getElementById("miIframe");
 
-            iframe.addEventListener("scroll", function () {
+            iframe.addEventListener("load", function () {
                 var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
                 var iframeBody = iframeDocument.body;
 
@@ -91,7 +97,7 @@
 
                     // Habilitar el botón cuando se llega al final del scrollbar
                     //if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
-                        console.log(scrollPosition,iframeHeight,iframeScrollHeight)
+                    console.log(scrollPosition, iframeHeight, iframeScrollHeight)
                     if (scrollPosition + iframeHeight >= iframeScrollHeight) {
 
                         $("#botonEnviar").prop("disabled", false);
