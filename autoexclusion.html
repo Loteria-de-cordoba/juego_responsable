@@ -77,8 +77,8 @@
           function report() {
                 var scrollPosition = $('#miIframe').contents().find('body').scrollTop();
                 var iframeHeight = $('#miIframe').contents().find('body').height();
-                iframeHeight = $('#miIframe').contents().find('body').prop('scrollHeight');
-                alert(scrollPosition +'-'+ iframeHeight +'-'+ iframeHeight);
+                var iframeScrollHeight = $('#miIframe').contents().find('body').prop('scrollHeight');
+                alert(scrollPosition +'-'+ iframeHeight +'-'+ iframeScrollHeight);
             }
 
         $(document).ready(function () {
