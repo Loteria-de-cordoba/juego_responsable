@@ -75,38 +75,29 @@
     <script>
 
         $(document).ready(function () {
+            
 
+            var iframe = document.getElementById("miIframe");
 
-            var myIframeObj = document.getElementById('miIframe');
-            var iframeHeight = myIframeObj.clientHeight - 0;
-            var scrolledPosition = myIframeObj.document.body.scrollTop - 0;
-            var iframeContentHeight = myIframeObj.document.height - 0;
-            if (iframeHeight + scrolledPosition >= iframeContentHeight) {
-                alert('You are at the bottom of the terms');
-            } else {
-                alert('You are NOT at the bottom of the terms yet!');
-            }
+            iframe.addEventListener("load", function () {
+                var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+                var iframeBody = iframeDocument.body;
 
+                $(iframeBody).on('scroll', function () {
 
-            // var iframe = document.getElementById("miIframe");
+                    var scrollPosition = $(this).scrollTop();
+                    var iframeHeight = $(this).height();
+                    var iframeScrollHeight = $(this).prop('scrollHeight');
 
-            // iframe.addEventListener("load", function () {
-            //     var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-            //     var iframeBody = iframeDocument.body;
+                    // Habilitar el botón cuando se llega al final del scrollbar
+                    //if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
+                        console.log(scrollPosition,iframeHeight,iframeScrollHeight)
+                    if (scrollPosition + iframeHeight >= iframeScrollHeight) {
 
-            //     $(iframeBody).on('scroll', function () {
-
-            //         var scrollPosition = $(this).scrollTop();
-            //         var iframeHeight = $(this).height();
-            //         var iframeScrollHeight = $(this).prop('scrollHeight');
-
-            //         // Habilitar el botón cuando se llega al final del scrollbar
-            //         //if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
-            //         if (scrollPosition + iframeHeight >= iframeScrollHeight) {
-            //             $("#botonEnviar").prop("disabled", false);
-            //         }
-            //     });
-            // });
+                        $("#botonEnviar").prop("disabled", false);
+                    }
+                });
+            });
 
 
             $("#botonEnviar").click(function () {
