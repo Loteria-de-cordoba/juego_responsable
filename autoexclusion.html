@@ -84,7 +84,7 @@
 
                 $(iframeBody).on('scroll', function () {
 
-                    var y = window.scrollY;
+                    var y = iframe.scrollY;
                     console.log(y);
                     var scrollPosition = $(this).scrollTop();
                     var iframeHeight = $(this).height();
@@ -97,11 +97,6 @@
                     }
                 });
             });
-
-            iframe.onscroll = function () {
-                var y = iframe.scrollY;
-                console.log(y);
-            };
 
 
             $("#botonEnviar").click(function () {
