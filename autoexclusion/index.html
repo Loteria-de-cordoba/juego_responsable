@@ -14,6 +14,11 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+
 
     <link href="bootstrap-5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -21,116 +26,275 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
+
     <script src="jquery-3.7.1/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
+
     <div class="container">
 
+        <img src="assets/logo-loteria.jpg" width="100" height="45" alt="Lotería de Córdoba S.E.">
+
+        <div class="card">
+
+            <div class="card-header">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs mt-2">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#scanner">Scanner</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#manual">Manual</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#autoexclusion">Autoexclusion</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
 
 
-        <form class="row g-3 mt-2">
+                <!-- Pantalla de ingreso con scanner -->
+                <div class="tab-pane container" id="scanner">
+                    <form class="row g-3 mt-1">
+                        <nav class="navbar mt-4" style="background-color: #b3d9ff;">
+                            <div class="container-fluid">
+                                <a class="navbar-brand" href="#">
+                                    <!-- <img src="assets/logo-oficial-apaisado.png" alt="Logo" width="60" height="30"
+                                    class="d-inline-block align-text-top"> -->
+                                    Control de ingreso a salas
+                                </a>
+                            </div>
+                        </nav>
+
+                        <div class="form-group">
+                            <label for="scan">Scan</label>
+                            <input type="text" class="form-control" id="scan_1"
+                                placeholder="Escanee el DNI con pistola aquí...">
+                        </div>
+                        <div class="form-group">
+                            <label for="numeroTramite_1">Número de Trámite</label>
+                            <input type="text" class="form-control" id="numeroTramite_1">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido_1">Apellido</label>
+                            <input type="text" class="form-control" id="apellido_1">
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre_1">Nombre</label>
+                            <input type="text" class="form-control" id="nombre_1">
+                        </div>
+                        <div class="form-group">
+                            <label for="sexo_1">Sexo</label>
+                            <input type="text" class="form-control" id="sexo_1">
+                        </div>
+                        <div class="form-group">
+                            <label for="dni_1">Número de DNI</label>
+                            <input type="text" class="form-control" id="dni_1">
+                        </div>
+                        <div class="form-group">
+                            <label for="numeroEjemplar_1">Número de Ejemplar</label>
+                            <input type="text" class="form-control" id="numeroEjemplar_1">
+                        </div>
+                        <div class="form-group">
+                            <label for="fechaNacimiento_1">Fecha de Nacimiento</label>
+                            <input type="text" class="form-control" id="fechaNacimiento_1">
+                        </div>
+                        <div class="form-group">
+                            <label for="fechaCaducidad_1">Fecha de Caducidad</label>
+                            <input type="text" class="form-control" id="fechaCaducidad_1">
+                        </div>
 
 
-            <nav class="navbar" style="background-color: #b3d9ff;">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
-                        <img src="assets/logo-oficial-apaisado.png" alt="Logo" width="60" height="30"
-                            class="d-inline-block align-text-top">
-                        Control de ingreso a salas
-                    </a>
+                        <div class="col-12">
+                            <div class="d-grid gap-2">
+                                <button type="button" id="aceptar_1" class="btn btn-primary"
+                                    onclick="consultarApiRest();">Consultar</button>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-grid gap-2">
+                                <button type="button" id="reiniciar_1" class="btn btn-info"
+                                    onclick="reiniciarForm();">Reiniciar</button>
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
-            </nav>
 
 
+                <!-- Pantalla de ingreso manual -->
+                <div class="tab-pane container fade" id="manual">
+                    <form class="row g-3 mt-2">
+                        <nav class="navbar" style="background-color: #b3d9ff;">
+                            <div class="container-fluid">
+                                <a class="navbar-brand" href="#">
+                                    <!-- <img src="assets/logo-oficial-apaisado.png" alt="Logo" width="60" height="30"
+                                        class="d-inline-block align-text-top"> -->
+                                    Control de ingreso a salas
+                                </a>
+                            </div>
+                        </nav>
 
-            <div class="col-12 text-left">
-                <label for="inputEmail4" class="form-label">DNI</label>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" id="dni" placeholder="numero">
+                        <div class="col-12 text-left">
+                            <label for="dni_manual" class="form-label">DNI</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="dni_manual" placeholder="numero">
+                            </div>
+                        </div>
+
+                        <div class="col-12 text-left">
+                            <label for="inputAddress" class="form-label">Sexo</label>
+                            <div class="col-12 btn-group" role="group" aria-label="Basic radio toggle button group">
+
+                                <input type="radio" class="btn-check" class="form-control" name="P1" autocomplete="off"
+                                    id="P1_0">
+                                <label class="btn btn-outline-primary" for="P1_0">Masculino</label>
+
+                                <input type="radio" class="btn-check" class="form-control" name="P1" autocomplete="off"
+                                    id="P1_1">
+                                <label class="btn btn-outline-primary" for="P1_1">Femenino</label>
+                            </div>
+                        </div>
+
+                        <div class="col-12 text-left">
+                            <label for="inputAddress" class="form-label">Fecha de nacimiento</label>
+                        </div>
+                        <div class="col-4 text-center">
+                            <input type="text" class="form-control" id="dia" placeholder="dia">
+                        </div>
+                        <div class="col-4 text-center">
+                            <input type="text" class="form-control" id="mes" placeholder="mes">
+                        </div>
+                        <div class="col-4 text-center">
+                            <input type="text" class="form-control" id="anio" placeholder="año">
+                        </div>
+
+
+                        <div class="col-12">
+                            <div class="d-grid gap-2">
+                                <button type="button" id="aceptar_manual" class="btn btn-primary"
+                                    onclick="consultarApiRest();">Consultar</button>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-grid gap-2">
+                                <button type="button" id="reiniciar_manual" class="btn btn-info"
+                                    onclick="reiniciarForm();">Reiniciar</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+                <!-- Pantalla de autoexclusion -->
+                <div class="tab-pane container fade" id="autoexclusion">
+                    <form class="row g-3 mt-2">
+                        <nav class="navbar mt-4" style="background-color: #ff4d4d;">
+                            <div class="container-fluid">
+                                <a class="navbar-brand" href="#">
+                                    <!-- <img src="assets/logo-oficial-apaisado.png" alt="Logo" width="60" height="30"
+                                    class="d-inline-block align-text-top"> -->
+                                    Formulario de autoexclusion <!-- Título del formulario -->
+                                </a>
+                            </div>
+                        </nav>
+
+
+                        <div class="form-group">
+                            <label for="scan">Scan</label>
+                            <input type="text" class="form-control" id="scan_2"
+                                placeholder="Escanee el DNI con pistola aquí...">
+                        </div>
+                        <div class="form-group">
+                            <label for="numeroTramite_2">Número de Trámite</label>
+                            <input type="text" class="form-control" id="numeroTramite_2">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido_2">Apellido</label>
+                            <input type="text" class="form-control" id="apellido_2">
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre_2">Nombre</label>
+                            <input type="text" class="form-control" id="nombre_2">
+                        </div>
+                        <div class="form-group">
+                            <label for="sexo_2">Sexo</label>
+                            <input type="text" class="form-control" id="sexo_2">
+                        </div>
+                        <div class="form-group">
+                            <label for="dni_2">Número de DNI</label>
+                            <input type="text" class="form-control" id="dni_2">
+                        </div>
+                        <div class="form-group">
+                            <label for="numeroEjemplar_2">Número de Ejemplar</label>
+                            <input type="text" class="form-control" id="numeroEjemplar_2"">
+                        </div>
+                        <div class="form-group">
+                            <label for="fechaNacimiento_2">Fecha de Nacimiento</label>
+                            <input type="text" class="form-control" id="fechaNacimiento_2">
+                        </div>
+                        <div class="form-group">
+                            <label for="fechaCaducidad_2">Fecha de Caducidad</label>
+                            <input type="text" class="form-control" id="fechaCaducidad_2">
+                        </div>
+                        <iframe id="miIframe"
+                            src="https://loteria-de-cordoba.github.io/juego_responsable/tc_autoexclusion_permanente.html"
+                            width="100%" height="400"></iframe>
+                        <!-- <button type="button" id="botonEnviar" class="btn btn-primary" disabled>Estoy de acuerdo</button> -->
+                        <button type="button" id="botonEnviar" class="btn btn-primary">Estoy de acuerdo</button>
+
+                        <!-- <button onclick="report()">Get Coords</button> -->
+                    </form>
                 </div>
             </div>
 
-            <div class="col-12 text-left">
-                <label for="inputAddress" class="form-label">Sexo</label>
-                <div class="col-12 btn-group" role="group" aria-label="Basic radio toggle button group">
 
-                    <input type="radio" class="btn-check" class="form-control" name="P1" autocomplete="off" id="P1_0">
-                    <label class="btn btn-outline-primary" for="P1_0">Masculino</label>
 
-                    <input type="radio" class="btn-check" class="form-control" name="P1" autocomplete="off" id="P1_1">
-                    <label class="btn btn-outline-primary" for="P1_1">Femenino</label>
-                </div>
+            <div class="alert alert-success mt-3 me-3 ms-3" role="alert" id="alert_1">
+                BIENVENIDO, Puede ingresar!...
+            </div>
+            <div class="alert alert-danger mt-3 me-3 ms-3" role="alert" id="alert_2">
+                AUTOEXCLUIDO, Ingreso denegado!...
+                <p id="detalle_exclusion"></p>
+            </div>
+            <div class="alert alert-warning mt-3 me-3 ms-3" role="alert" id="alert_3">
+                EMPLEADO, Informar a Gerencia!...
+            </div>
+            <div class="alert alert-danger mt-3 me-3 ms-3" role="alert" id="alert_4">
+                <img src="assets/+18-02.png" alt="Logo" width="45" height="45" class="d-inline-block align-text-top">
+                <p>Menor de Edad, Ingreso denegado!...</p>
             </div>
 
-            <div class="col-12 text-left">
-                <label for="inputAddress" class="form-label">Fecha de nacimiento</label>
-            </div>
-            <div class="col-4 text-center">
-                <input type="text" class="form-control" id="dia" placeholder="dia">
-            </div>
-            <div class="col-4 text-center">
-                <input type="text" class="form-control" id="mes" placeholder="mes">
-            </div>
-            <div class="col-4 text-center">
-                <input type="text" class="form-control" id="anio" placeholder="año">
-            </div>
-
-
-            <div class="col-12">
-                <div class="d-grid gap-2">
-                    <button type="button" id="aceptar" class="btn btn-primary"
-                        onclick="consultarApiRest();">Consultar</button>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="d-grid gap-2">
-                    <button type="button" id="aceptar" class="btn btn-info"
-                        onclick="reiniciarForm();">Reiniciar</button>
-                </div>
-            </div>
-
-        </form>
-
-        <div class="alert alert-success mt-3" role="alert" id="alert_1">
-            BIENVENIDO, Puede ingresar!...
-        </div>
-        <div class="alert alert-danger mt-3" role="alert" id="alert_2">
-            AUTOEXCLUIDO, Ingreso denegado!...
-        </div>
-        <div class="alert alert-warning mt-3" role="alert" id="alert_3">
-            EMPLEADO, Informar a Gerencia!...
-        </div>
-        <div class="alert alert-danger mt-3" role="alert" id="alert_4">
-            <img src="assets/+18-02.png" alt="Logo" width="45" height="45" class="d-inline-block align-text-top">
-            <p>Menor de Edad, Ingreso denegado!...</p>
-        </div>
-
-        <!-- <div class="alert alert-danger mt-3" role="alert" id="alert_4"> -->
-        <!-- <img src="assets/+18-02.png" alt="Logo" width="45" height="45"
+            <!-- <div class="alert alert-danger mt-3" role="alert" id="alert_4"> -->
+            <!-- <img src="assets/+18-02.png" alt="Logo" width="45" height="45"
             class="d-inline-block align-text-top"> -->
-        <div class="text-center" id="loading">
-            <div class="spinner-border spinner-border-sm text-success mt-3 text-center" role="status">
-                <!-- <span class="sr-only ">Loading...</span> -->
+            <div class="text-center" id="loading">
+                <div class="spinner-border spinner-border-sm text-success mt-3 text-center" role="status">
+                    <!-- <span class="sr-only ">Loading...</span> -->
+                </div>
             </div>
-        </div>
-        <!-- </div> -->
-        <!-- <div class="row ms-1 me-1 animated fadeIn fast"> -->
-        <!-- <div class="col-12"> -->
-        <!-- <div class="alert alert-success alert-dismissible text-center" role="alert"> -->
-        <!-- <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button> -->
-        <!-- <div class="alert-message text-center"> -->
-        <!-- <h4 class=" alert-heading ml-5 ">Cargando...</h4> -->
-        <!-- <div class="spinner-border spinner-border-sm text-danger mt-2 ms-5 text-center" role="status"> -->
-        <!-- <span class="sr-only ">Loading...</span> -->
-        <!-- </div> -->
-        <!-- <hr /> -->
-        <!-- <p class="mb-0 ml-5">Por favor espere...</p> -->
-        <!-- </div> -->
-        <!-- </div> -->
-        <!-- </div> -->
-        <!-- </div> -->
+            <!-- </div> -->
+            <!-- <div class="row ms-1 me-1 animated fadeIn fast"> -->
+            <!-- <div class="col-12"> -->
+            <!-- <div class="alert alert-success alert-dismissible text-center" role="alert"> -->
+            <!-- <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button> -->
+            <!-- <div class="alert-message text-center"> -->
+            <!-- <h4 class=" alert-heading ml-5 ">Cargando...</h4> -->
+            <!-- <div class="spinner-border spinner-border-sm text-danger mt-2 ms-5 text-center" role="status"> -->
+            <!-- <span class="sr-only ">Loading...</span> -->
+            <!-- </div> -->
+            <!-- <hr /> -->
+            <!-- <p class="mb-0 ml-5">Por favor espere...</p> -->
+            <!-- </div> -->
+            <!-- </div> -->
+            <!-- </div> -->
+            <!-- </div> -->
 
+        </div>
     </div>
 
 </body>
@@ -139,18 +303,65 @@
 
 
     $(document).ready(function () {
-       
+
+        $('#scanner').addClass("active");
+
         reiniciarForm();
         //$('#aceptar').prop('disabled', true);
-        console.log("ready!");
-
         // alert(getAge(1969-12-29));
 
-    });
-    
-    function reiniciarForm(){
+        $("#botonEnviar").click(function () {
+            Swal.fire({
+                title: 'Confirmación',
+                text: '¿Estás de acuerdo?',
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, estoy de acuerdo',
+                cancelButtonText: 'No',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // $("#miIframe").attr('src', 'https://loteria-de-cordoba.github.io/juego_responsable/tc_autoexclusion_permanente.html');
+                    console.log("aceptado");
+                }
+            });
+        });
 
-        $('#dni').val("");
+
+        $("#scan_1").on('input', function () {
+            var dataString = $(this).val();
+            var dataArray = dataString.split('"');
+
+            $("#numeroTramite_1").val(dataArray[0]);
+            $("#apellido_1").val(dataArray[1]);
+            $("#nombre_1").val(dataArray[2]);
+            $("#sexo_1").val(dataArray[3]);
+            $("#dni_1").val(dataArray[4]);
+            $("#numeroEjemplar_1").val(dataArray[5]);
+            $("#fechaNacimiento_1").val(dataArray[6]);
+            $("#fechaCaducidad_1").val(dataArray[7]);
+        });
+
+        $("#scan_2").on('input', function () {
+            var dataString = $(this).val();
+            var dataArray = dataString.split('"');
+
+            $("#numeroTramite_2").val(dataArray[0]);
+            $("#apellido_2").val(dataArray[1]);
+            $("#nombre_2").val(dataArray[2]);
+            $("#sexo_2").val(dataArray[3]);
+            $("#dni_2").val(dataArray[4]);
+            $("#numeroEjemplar_2").val(dataArray[5]);
+            $("#fechaNacimiento_2").val(dataArray[6]);
+            $("#fechaCaducidad_2").val(dataArray[7]);
+        });
+
+        console.log("ready!");
+
+    });
+
+    function reiniciarForm() {
+
+        $('#dni_manual').val("");
         $('#dia').val("");
         $('#mes').val("");
         $('#anio').val("");
@@ -159,8 +370,8 @@
         $('#alert_3').hide();
         $('#alert_4').hide();
         $('#loading').hide();
-        $('#P1_0').prop("checked",false)
-        $('#P1_1').prop("checked",false)
+        $('#P1_0').prop("checked", false)
+        $('#P1_1').prop("checked", false)
 
     }
 
@@ -168,7 +379,7 @@
 
         let validado = true;
 
-        if (!$.isNumeric($('#dni').val())) {
+        if (!$.isNumeric($('#dni_manual').val())) {
             //console.log('El dni debe ser numerico!...');
             validado = false;
         }
@@ -220,7 +431,7 @@
 
     function consultarApiRest() {
 
-      
+
 
         const fecha_nac = `${$('#anio').val()}-${$('#mes').val()}-${$('#dia').val()}`;
         // alert(getAge(fecha_nac));
@@ -249,7 +460,7 @@
         }
 
         variables = {
-            dni: $('#dni').val(),
+            dni: $('#dni_manual').val(),
             sexo: sexo,
             anio: $('#anio').val(),
             mes: $('#mes').val(),
@@ -290,6 +501,7 @@
             } else if (obj.message === "Excluded gambler") {
                 $('#alert_1').hide();
                 $('#alert_2').show();
+                $('#detalle_exclusion').text(`Razon: ${obj.reason}, el dia: ${obj.date}, vigente desde el: ${obj.from}, hasta el ${obj.to} `);
                 $('#alert_3').hide();
                 $('#alert_4').hide();
                 $('#loading').hide();
@@ -325,3 +537,8 @@
     }
 
 </script>
+
+
+
+<!-- Datos de prueba -->
+<!-- 00127457992"MONTE DE OCA"ALEJANDRO MARTIN"M"22792095"A"21-08-1972"03-08-2012 -->
