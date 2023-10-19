@@ -349,7 +349,7 @@
         $("#scan_1").on('input', function () {
 
             var dataString = $(this).val();
-            var dataArray = dataString.replace("'", '-').replace('[', '\"').split('"');
+            var dataArray = dataString.split('"');
 
             function isDateValid(dateStr) {
                 return !isNaN(new Date(dateStr));
@@ -370,7 +370,7 @@
 
         $("#scan_2").on('input', function () {
             var dataString = $(this).val();
-            var dataArray = dataString.replace("'", '-').replace('[', '\"').split('"');
+            var dataArray = dataString.split('"');
 
             $("#numeroTramite_2").val(dataArray[0]);
             $("#apellido_2").val(dataArray[1]);
