@@ -81,7 +81,7 @@
                                     <div class="col-12">
                                         <div class="d-grid gap-2">
                                             <button type="button" id="aceptar_1" class="btn btn-primary"
-                                                onclick="consultarApiRest('scanner');">Consultar</button>
+                                                onclick="consultarApiRestScanner();">Consultar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -119,7 +119,7 @@
                             </div>
                         </div>
 
-                        
+
 
                         <div class="form-group">
                             <label for="numeroTramite_1">Número de Trámite</label>
@@ -155,9 +155,6 @@
                         </div>
 
 
-
-
-
                     </form>
                 </div>
 
@@ -176,53 +173,83 @@
                         </nav>
 
                         <div class="col-12 text-left">
-                            <label for="dni_manual" class="form-label">DNI</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" id="dni_manual" placeholder="numero">
+
+                            <div class="row">
+                                <label for="dni_manual" class="form-label">DNI</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="dni_manual" placeholder="numero">
+                                </div>
+
+                                <div class="col-md-6"></div>
+                                <div class="col-12">
+                                    <!-- Alerts -->
+                                    <div class="alert alert-success mt-3" role="alert" id="alert_5">
+                                        BIENVENIDO, Puede ingresar!...
+                                    </div>
+                                    <div class="alert alert-danger mt-3" role="alert" id="alert_6">
+                                        AUTOEXCLUIDO, Ingreso denegado!...
+                                        <p id="detalle_exclusion"></p>
+                                    </div>
+                                    <div class="alert alert-warning mt-3" role="alert" id="alert_7">
+                                        EMPLEADO, Informar a Gerencia!...
+                                    </div>
+                                    <div class="alert alert-danger mt-3" role="alert" id="alert_8">
+                                        <img src="assets/+18-02.png" alt="Logo" width="45" height="45"
+                                            class="d-inline-block align-text-top">
+                                        <p>Menor de Edad, Ingreso denegado!...</p>
+                                    </div>
+                                    <div class="text-center" id="loading_2">
+                                        <div class="spinner-border spinner-border-sm text-success mt-3 text-center"
+                                            role="status">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12 text-left mt-3">
+                                <label for="inputAddress" class="form-label">Sexo</label>
+                                <div class="col-12 btn-group" role="group" aria-label="Basic radio toggle button group">
+
+                                    <input type="radio" class="btn-check" class="form-control" name="P1"
+                                        autocomplete="off" id="P1_0">
+                                    <label class="btn btn-outline-primary" for="P1_0">Masculino</label>
+
+                                    <input type="radio" class="btn-check" class="form-control" name="P1"
+                                        autocomplete="off" id="P1_1">
+                                    <label class="btn btn-outline-primary" for="P1_1">Femenino</label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 text-left mt-3">
+                                <label for="inputAddress" class="form-label">Fecha de nacimiento</label>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 text-center">
+                                    <input type="text" class="form-control" id="dia" placeholder="dia">
+                                </div>
+                                <div class="col-4 text-center">
+                                    <input type="text" class="form-control" id="mes" placeholder="mes">
+                                </div>
+                                <div class="col-4 text-center">
+                                    <input type="text" class="form-control" id="anio" placeholder="año">
+                                </div>
+                            </div>
+
+
+                            <div class="col-12 mt-3">
+                                <div class="d-grid gap-2">
+                                    <button type="button" id="aceptar_manual" class="btn btn-primary"
+                                        onclick="consultarApiRestManual();">Consultar</button>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <div class="d-grid gap-2">
+                                    <button type="button" id="reiniciar_manual" class="btn btn-info"
+                                        onclick="reiniciarForm();">Reiniciar</button>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="col-12 text-left">
-                            <label for="inputAddress" class="form-label">Sexo</label>
-                            <div class="col-12 btn-group" role="group" aria-label="Basic radio toggle button group">
-
-                                <input type="radio" class="btn-check" class="form-control" name="P1" autocomplete="off"
-                                    id="P1_0">
-                                <label class="btn btn-outline-primary" for="P1_0">Masculino</label>
-
-                                <input type="radio" class="btn-check" class="form-control" name="P1" autocomplete="off"
-                                    id="P1_1">
-                                <label class="btn btn-outline-primary" for="P1_1">Femenino</label>
-                            </div>
-                        </div>
-
-                        <div class="col-12 text-left">
-                            <label for="inputAddress" class="form-label">Fecha de nacimiento</label>
-                        </div>
-                        <div class="col-4 text-center">
-                            <input type="text" class="form-control" id="dia" placeholder="dia">
-                        </div>
-                        <div class="col-4 text-center">
-                            <input type="text" class="form-control" id="mes" placeholder="mes">
-                        </div>
-                        <div class="col-4 text-center">
-                            <input type="text" class="form-control" id="anio" placeholder="año">
-                        </div>
-
-
-                        <div class="col-12">
-                            <div class="d-grid gap-2">
-                                <button type="button" id="aceptar_manual" class="btn btn-primary"
-                                    onclick="consultarApiRest('manual');">Consultar</button>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="d-grid gap-2">
-                                <button type="button" id="reiniciar_manual" class="btn btn-info"
-                                    onclick="reiniciarForm();">Reiniciar</button>
-                            </div>
-                        </div>
-
                     </form>
                 </div>
 
@@ -286,26 +313,12 @@
                         <!-- <button onclick="report()">Get Coords</button> -->
                     </form>
                 </div>
+
+
+                <div class="tab-pane container fade" id="manualxxx">
+                    aaa
+                </div>
             </div>
-
-
-
-            <!-- </div> -->
-            <!-- <div class="row ms-1 me-1 animated fadeIn fast"> -->
-            <!-- <div class="col-12"> -->
-            <!-- <div class="alert alert-success alert-dismissible text-center" role="alert"> -->
-            <!-- <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button> -->
-            <!-- <div class="alert-message text-center"> -->
-            <!-- <h4 class=" alert-heading ml-5 ">Cargando...</h4> -->
-            <!-- <div class="spinner-border spinner-border-sm text-danger mt-2 ms-5 text-center" role="status"> -->
-            <!-- <span class="sr-only ">Loading...</span> -->
-            <!-- </div> -->
-            <!-- <hr /> -->
-            <!-- <p class="mb-0 ml-5">Por favor espere...</p> -->
-            <!-- </div> -->
-            <!-- </div> -->
-            <!-- </div> -->
-            <!-- </div> -->
 
         </div>
     </div>
@@ -339,10 +352,13 @@
             });
         });
 
-
         $("#scan_1").on('input', function () {
             var dataString = $(this).val();
             var dataArray = dataString.split('"');
+
+            function isDateValid(dateStr) {
+                return !isNaN(new Date(dateStr));
+            }
 
             $("#numeroTramite_1").val(dataArray[0]);
             $("#apellido_1").val(dataArray[1]);
@@ -351,7 +367,12 @@
             $("#dni_1").val(dataArray[4]);
             $("#numeroEjemplar_1").val(dataArray[5]);
             $("#fechaNacimiento_1").val(dataArray[6]);
-            $("#fechaCaducidad_1").val(dataArray[7])
+            $("#fechaCaducidad_1").val(dataArray[7]);
+            console.log(isDateValid($("#fechaCaducidad_1").val().replace('-', '/')));
+            if (isDateValid($("#fechaCaducidad_1").val().replace('-', '/'))) {
+                consultarApiRestScanner();
+            }
+
         });
 
         $("#scan_2").on('input', function () {
@@ -411,6 +432,14 @@
         $('#alert_4').hide();
         $('#loading').hide();
 
+
+        //alertas
+        $('#alert_5').hide();
+        $('#alert_6').hide();
+        $('#alert_7').hide();
+        $('#alert_8').hide();
+        $('#loading_2').hide();
+
         $('#scan_1').focus();
 
     }
@@ -469,82 +498,40 @@
 
 
 
-    function consultarApiRest(opcion) {
-
-        switch (opcion) {
-
-            case 'scanner':
-
-                var dataString = $('#fechaNacimiento_1').val();
-                var dataArray = dataString.split('-');
-
-                var fecha_nac = `${dataArray[2]}-${dataArray[1]}-${dataArray[0]}`;
-
-                // alert(getAge(fecha_nac));
-                if (getAge(fecha_nac) < 18) {
-                    $('#alert_1').hide();
-                    $('#alert_2').hide();
-                    $('#alert_3').hide();
-                    $('#alert_4').show();
-                    // alert('Menor de edad!...');
-                    return false;
-                }
+    function consultarApiRestScanner() {
 
 
-                variables = {
-                    dni: $('#dni_1').val(),
-                    sexo: $('#sexo_1').val(),
-                    anio: dataArray[2],
-                    mes: dataArray[1],
-                    dia: dataArray[0]
-                };
+        var dataString = $('#fechaNacimiento_1').val();
+        var dataArray = dataString.split('-');
 
-                break;
+        var fecha_nac = `${dataArray[2]}-${dataArray[1]}-${dataArray[0]}`;
 
-            case 'manual':
-
-                var fecha_nac = `${$('#anio').val()}-${$('#mes').val()}-${$('#dia').val()}`;
-                // alert(getAge(fecha_nac));
-                if (getAge(fecha_nac) < 18) {
-                    $('#alert_1').hide();
-                    $('#alert_2').hide();
-                    $('#alert_3').hide();
-                    $('#alert_4').show();
-                    // alert('Menor de edad!...');
-                    return false;
-                }
-
-                var validado = validarform();
-
-                if (!validado) {
-                    alert("Falta un completar un campo!...");
-                    return false;
-                }
-
-                var sexo = "";
-
-                if ($('#P1_0').prop("checked")) {
-                    sexo = 'M';
-                } else if ($('#P1_1').prop("checked")) {
-                    sexo = 'F'
-                }
-
-                variables = {
-                    dni: $('#dni_manual').val(),
-                    sexo: sexo,
-                    anio: $('#anio').val(),
-                    mes: $('#mes').val(),
-                    dia: $('#dia').val()
-                };
-
-                break;
+        // alert(getAge(fecha_nac));
+        if (getAge(fecha_nac) < 18) {
+            $('#alert_1').hide();
+            $('#alert_2').hide();
+            $('#alert_3').hide();
+            $('#alert_4').show();
+            // alert('Menor de edad!...');
+            return false;
         }
 
+
+        variables = {
+            dni: $('#dni_1').val(),
+            sexo: $('#sexo_1').val(),
+            anio: dataArray[2],
+            mes: dataArray[1],
+            dia: dataArray[0]
+        };
+
+        $('#loading').show();
         $('#alert_1').hide();
         $('#alert_2').hide();
         $('#alert_3').hide();
         $('#alert_4').hide();
-        $('#loading').show();
+
+
 
 
         $.ajax({
@@ -580,9 +567,91 @@
                 $('#loading').hide();
             }
 
-            // reiniciarForm();
-            // $('#scan_2').focus();
+        }).fail(function () {
+            alert("Error, no se pudo realizar la consulta!...");
+        }).always(function () {
+            // alert("finished");
+        });
 
+    }
+
+    function consultarApiRestManual() {
+
+
+        var fecha_nac = `${$('#anio').val()}-${$('#mes').val()}-${$('#dia').val()}`;
+        // alert(getAge(fecha_nac));
+        if (getAge(fecha_nac) < 18) {
+            $('#alert_5').hide();
+            $('#alert_6').hide();
+            $('#alert_7').hide();
+            $('#alert_8').show();
+            // alert('Menor de edad!...');
+            return false;
+        }
+
+        var validado = validarform();
+
+        if (!validado) {
+            alert("Falta un completar un campo!...");
+            return false;
+        }
+
+        var sexo = "";
+
+        if ($('#P1_0').prop("checked")) {
+            sexo = 'M';
+        } else if ($('#P1_1').prop("checked")) {
+            sexo = 'F'
+        }
+
+        variables = {
+            dni: $('#dni_manual').val(),
+            sexo: sexo,
+            anio: $('#anio').val(),
+            mes: $('#mes').val(),
+            dia: $('#dia').val()
+        };
+
+        $('#loading_2').show();
+        $('#alert_5').hide();
+        $('#alert_6').hide();
+        $('#alert_7').hide();
+        $('#alert_8').hide();
+
+
+
+        $.ajax({
+            type: "POST",
+            //url: 'https://localhost/control-ingreso-salas/index.php',
+            url: 'https://late-agenciero.loteriacba.com.ar/ingreso-backend-php-oci/index.php',
+            data: JSON.stringify(variables),
+            dataType: 'json'
+        }).done(function (data) {
+            // alert("Data Loaded: " + data);
+            console.log(data);
+            var obj = jQuery.parseJSON(data);
+            console.log(obj);
+            if (obj.message === "Excluded gambler" && obj.type === "EMPLEADO") {
+                $('#alert_4').hide();
+                $('#alert_6').hide();
+                $('#alert_7').show();
+                $('#alert_8').hide();
+                $('#loading_2').hide();
+            } else if (obj.message === "Invalid person") {
+                $('#alert_5').show();
+                $('#alert_6').hide();
+                $('#alert_7').hide();
+                $('#alert_8').hide();
+                $('#loading_2').hide();
+                console.log('Invalid person');
+            } else if (obj.message === "Excluded gambler") {
+                $('#alert_5').hide();
+                $('#alert_6').show();
+                $('#detalle_exclusion').text(`Razon: ${obj.reason}, el dia: ${obj.date}, vigente desde el: ${obj.from}, hasta el ${obj.to} `);
+                $('#alert_7').hide();
+                $('#alert_8').hide();
+                $('#loading_2').hide();
+            }
 
         }).fail(function () {
             alert("Error, no se pudo realizar la consulta!...");
@@ -590,26 +659,6 @@
             // alert("finished");
         });
 
-        // var jqxhr = $.post("https://late-agenciero.loteriacba.com.ar/ingreso-backend-php-oci/index.php", variables, function () {
-        //     alert("success");
-        // })
-        //     .done(function (data) {
-        //         alert("Data Loaded: " + data);
-        //         console.log(data);
-        //         var obj = jQuery.parseJSON(data);
-        //         console.log(obj);
-
-        //         if (obj.message === "Excluded gambler" && obj.type === "EMPLEADO") {
-        //             $('#alert_3').show();
-        //         }
-
-        //     })
-        //     .fail(function () {
-        //         alert("Error, no se pudo realizar la consulta!...");
-        //     })
-        //     .always(function () {
-        //         alert("finished");
-        //     });
     }
 
 </script>
