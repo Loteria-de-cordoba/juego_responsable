@@ -28,6 +28,7 @@
 
 
     <script src="jquery-3.7.1/jquery-3.7.1.min.js"></script>
+    <script src="sweetalert2@11/sweetalert2@11.js"></script>
 </head>
 
 <body>
@@ -188,7 +189,7 @@
                                     </div>
                                     <div class="alert alert-danger mt-3" role="alert" id="alert_6">
                                         AUTOEXCLUIDO, Ingreso denegado!...
-                                        <p id="detalle_exclusion"></p>
+                                        <p id="detalle_exclusion2"></p>
                                     </div>
                                     <div class="alert alert-warning mt-3" role="alert" id="alert_7">
                                         EMPLEADO, Informar a Gerencia!...
@@ -348,18 +349,19 @@
                 if (result.isConfirmed) {
                     // $("#miIframe").attr('src', 'https://loteria-de-cordoba.github.io/juego_responsable/tc_autoexclusion_permanente.html');
                     console.log("aceptado");
+                    generarAutoexclusion();
                 }
             });
         });
 
         $("#scan_1").on('input', function () {
+
             var dataString = $(this).val();
             var dataArray = dataString.split('"');
 
             function isDateValid(dateStr) {
                 return !isNaN(new Date(dateStr));
             }
-
             $("#numeroTramite_1").val(dataArray[0]);
             $("#apellido_1").val(dataArray[1]);
             $("#nombre_1").val(dataArray[2]);
@@ -372,7 +374,6 @@
             if (isDateValid($("#fechaCaducidad_1").val().replace('-', '/'))) {
                 consultarApiRestScanner();
             }
-
         });
 
         $("#scan_2").on('input', function () {
@@ -488,9 +489,7 @@
         age = new Date();
         age.setTime(ageMS);
         ageYear = age.getFullYear() - 1970;
-
         return ageYear;
-
         // ageMonth = age.getMonth(); // Accurate calculation of the month part of the age
         // ageDay = age.getDate();    // Approximate calculation of the day part of the age
     }
@@ -500,10 +499,8 @@
 
     function consultarApiRestScanner() {
 
-
         var dataString = $('#fechaNacimiento_1').val();
         var dataArray = dataString.split('-');
-
         var fecha_nac = `${dataArray[2]}-${dataArray[1]}-${dataArray[0]}`;
 
         // alert(getAge(fecha_nac));
@@ -515,6 +512,10 @@
             // alert('Menor de edad!...');
             return false;
         }
+
+        headers = {
+            accion: 'consulta'
+        };
 
 
         variables = {
@@ -531,21 +532,19 @@
         $('#alert_3').hide();
         $('#alert_4').hide();
 
-
-
-
         $.ajax({
             type: "POST",
             //url: 'https://localhost/control-ingreso-salas/index.php',
             url: 'https://late-agenciero.loteriacba.com.ar/ingreso-backend-php-oci/index.php',
             data: JSON.stringify(variables),
+            headers: headers,
             dataType: 'json'
         }).done(function (data) {
             // alert("Data Loaded: " + data);
             console.log(data);
             var obj = jQuery.parseJSON(data);
             console.log(obj);
-            if (obj.message === "Excluded gambler" && obj.type === "EMPLEADO") {
+            if (obj.message === true) {
                 $('#alert_1').hide();
                 $('#alert_2').hide();
                 $('#alert_3').show();
@@ -577,7 +576,6 @@
 
     function consultarApiRestManual() {
 
-
         var fecha_nac = `${$('#anio').val()}-${$('#mes').val()}-${$('#dia').val()}`;
         // alert(getAge(fecha_nac));
         if (getAge(fecha_nac) < 18) {
@@ -604,6 +602,11 @@
             sexo = 'F'
         }
 
+        headers = {
+            accion: 'consulta'
+        };
+
+
         variables = {
             dni: $('#dni_manual').val(),
             sexo: sexo,
@@ -618,13 +621,12 @@
         $('#alert_7').hide();
         $('#alert_8').hide();
 
-
-
         $.ajax({
             type: "POST",
             //url: 'https://localhost/control-ingreso-salas/index.php',
             url: 'https://late-agenciero.loteriacba.com.ar/ingreso-backend-php-oci/index.php',
             data: JSON.stringify(variables),
+            headers: headers,
             dataType: 'json'
         }).done(function (data) {
             // alert("Data Loaded: " + data);
@@ -647,10 +649,86 @@
             } else if (obj.message === "Excluded gambler") {
                 $('#alert_5').hide();
                 $('#alert_6').show();
-                $('#detalle_exclusion').text(`Razon: ${obj.reason}, el dia: ${obj.date}, vigente desde el: ${obj.from}, hasta el ${obj.to} `);
+                $('#detalle_exclusion2').text(`Razon: ${obj.reason}, el dia: ${obj.date}, vigente desde el: ${obj.from}, hasta el ${obj.to} `);
                 $('#alert_7').hide();
                 $('#alert_8').hide();
                 $('#loading_2').hide();
+            }
+
+        }).fail(function () {
+            alert("Error, no se pudo realizar la consulta!...");
+        }).always(function () {
+            // alert("finished");
+        });
+
+    }
+
+    function generarAutoexclusion() {
+
+        var dataString = $('#fechaNacimiento_2').val();
+        var dataArray = dataString.split('-');
+        var fecha_nac = `${dataArray[2]}-${dataArray[1]}-${dataArray[0]}`;
+
+        // alert(getAge(fecha_nac));
+        if (getAge(fecha_nac) < 18) {
+            $('#alert_1').hide();
+            $('#alert_2').hide();
+            $('#alert_3').hide();
+            $('#alert_4').show();
+            // alert('Menor de edad!...');
+            return false;
+        }
+
+        headers = {
+            accion: 'autoexclusion'
+        };
+
+        variables = {
+            nombre: $("#nombre_2").val(),
+            apellido: $("#apellido_2").val(),
+            dni: $('#dni_2').val(),
+            sexo: $('#sexo_2').val(),
+            anio: dataArray[2],
+            mes: dataArray[1],
+            dia: dataArray[0]
+        };
+
+        $('#loading').show();
+        $('#alert_1').hide();
+        $('#alert_2').hide();
+        $('#alert_3').hide();
+        $('#alert_4').hide();
+
+        $.ajax({
+            type: "POST",
+            //url: 'https://localhost/control-ingreso-salas/index.php',
+            url: 'https://late-agenciero.loteriacba.com.ar/ingreso-backend-php-oci/index.php',
+            data: JSON.stringify(variables),
+            headers: headers,
+            dataType: 'json'
+        }).done(function (data) {
+            // alert("Data Loaded: " + data);
+            console.log(data);
+            var obj = jQuery.parseJSON(data);
+            console.log(obj);
+            if (obj.ok) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Gracias por confiar en Loteria de la provincia de Córdoba',
+                    showConfirmButton: false,
+                    timer: 3000
+                }).then((result) => {
+                reiniciarForm();
+            });
+            } else {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'No se pudo autoexcliuir!...',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
             }
 
         }).fail(function () {
@@ -666,4 +744,9 @@
 
 
 <!-- Datos de prueba -->
-<!-- 00127457992"MONTE DE OCA"ALEJANDRO MARTIN"M"22792095"A"21-08-1972"03-08-2012 -->
+<!-- 
+00127457992"MONTE DE OCA"ALEJANDRO MARTIN"M"22792095"A"21-08-1972"03-08-2012
+00127457333"MONTE JJJ"ALBERTO MARTIN"M"22792000"A"21-08-1972"03-08-2012
+
+00127458888"MONTE JJJ"ALBERTO MARTIN"M"22792444"A"21-08-1972"03-08-2012
+ -->
