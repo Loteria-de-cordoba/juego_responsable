@@ -148,7 +148,7 @@
                             <input type="text" class="form-control" id="fechaNacimiento_1">
                         </div>
                         <div class="form-group">
-                            <label for="fechaCaducidad_1">Fecha de Caducidad</label>
+                            <label for="fechaCaducidad_1">Fecha de Emision</label>
                             <input type="text" class="form-control" id="fechaCaducidad_1">
                         </div>
 
@@ -299,7 +299,7 @@
                             <input type="text" class="form-control" id="fechaNacimiento_2">
                         </div>
                         <div class="form-group">
-                            <label for="fechaCaducidad_2">Fecha de Caducidad</label>
+                            <label for="fechaCaducidad_2">Fecha de Emision</label>
                             <input type="text" class="form-control" id="fechaCaducidad_2">
                         </div>
                         <iframe id="miIframe"
@@ -536,7 +536,7 @@
             console.log(data);
             var obj = jQuery.parseJSON(data);
             console.log(obj);
-            if (obj.message === true) {
+            if (obj.message === "Excluded gambler" && obj.type === "EMPLEADO") {
                 $('#alert_1').hide();
                 $('#alert_2').hide();
                 $('#alert_3').show();
