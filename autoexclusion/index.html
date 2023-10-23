@@ -511,19 +511,11 @@
         });
 
 
-        function validarCampo(obj) {
-            if (obj.val() != "") {
-                obj.removeClass("is-invalid").addClass("is-valid");
-            } else {
-                obj.removeClass("is-valid").addClass("is-invalid");
-            }
-        }
-
         $("#scan_1").on('input', function () {
             var dataString = $(this).val();
             var dataArray = dataString.split('"');
 
-            function transformDate(fecha){
+            function transformDate(fecha) {
                 var dataArray = dataString.split('-');
                 return dataArray[1] + '/' + dataArray[0] + '/' + dataArray[2];
             }
@@ -599,6 +591,19 @@
 
     });
 
+    function iniciarCampo(obj) {
+        obj.removeClass("is-invalid").removeClass("is-valid");
+    }
+
+
+    function validarCampo(obj) {
+        if (obj.val() != "") {
+            obj.removeClass("is-invalid").addClass("is-valid");
+        } else {
+            obj.removeClass("is-valid").addClass("is-invalid");
+        }
+    }
+
     function reiniciarForm() {
 
         //carga manual
@@ -645,6 +650,25 @@
         $('#alert_7').hide();
         $('#alert_8').hide();
         $('#loading_2').hide();
+
+        iniciarCampo($("#numeroTramite_1"));
+        iniciarCampo($("#apellido_1"));
+        iniciarCampo($("#nombre_1"));
+        iniciarCampo($("#sexo_1"));
+        iniciarCampo($("#dni_1"));
+        iniciarCampo($("#numeroEjemplar_1"));
+        iniciarCampo($("#fechaNacimiento_1"));
+        iniciarCampo($("#fechaEmision_1"));
+
+        iniciarCampo($("#numeroTramite_2"));
+        iniciarCampo($("#apellido_2"));
+        iniciarCampo($("#nombre_2"));
+        iniciarCampo($("#sexo_2"));
+        iniciarCampo($("#dni_2"));
+        iniciarCampo($("#numeroEjemplar_2"));
+        iniciarCampo($("#fechaNacimiento_2"));
+        iniciarCampo($("#fechaEmision_2"));
+
 
         // $('#scan_2').focus();
 
