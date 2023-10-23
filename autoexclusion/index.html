@@ -20,8 +20,11 @@
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
 
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 
 
     <script src="jquery-3.7.1/jquery-3.7.1.min.js"></script>
@@ -119,38 +122,99 @@
 
 
 
-                        <div class="form-group">
-                            <label for="numeroTramite_1">Número de Trámite</label>
-                            <input type="text" class="form-control" id="numeroTramite_1">
+                        <div class="form-group row mt-4">
+                            <div class="col-md-4 mb-3">
+                                <label for="numeroTramite_1">Número de Trámite</label>
+                                <input type="text" class="form-control" id="numeroTramite_1"
+                                    placeholder="Número de Trámite" required readonly>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="apellido_1">Apellido</label>
+                                <input type="text" class="form-control" id="apellido_1" placeholder="Apellido" required>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="nombre_1">Nombre</label>
+                                <input type="text" class="form-control" id="nombre_1" placeholder="Nombre" required>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="apellido_1">Apellido</label>
-                            <input type="text" class="form-control" id="apellido_1">
+
+                        <div class="form-group row">
+                            <div class="col-md-4 mb-3">
+                                <label for="sexo_1">Sexo</label>
+                                <input type="text" class="form-control" id="sexo_1" placeholder="Sexo" required>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="dni_1">Número de DNI</label>
+                                <input type="text" class="form-control" id="dni_1" placeholder="Número de DNI" required>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="numeroEjemplar_1">Número de Ejemplar</label>
+                                <input type="text" class="form-control" id="numeroEjemplar_1"
+                                    placeholder="Número de Ejemplar" required>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="nombre_1">Nombre</label>
-                            <input type="text" class="form-control" id="nombre_1">
+
+                        <div class="form-group row">
+                            <div class="col-md-4 mb-3">
+                                <label for="fechaNacimiento_1">Fecha de Nacimiento</label>
+                                <input type="text" class="form-control" id="fechaNacimiento_1"
+                                    placeholder="Fecha de Nacimiento" required>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="fechaEmision_1">Fecha de Emision</label>
+                                <input type="text" class="form-control" id="fechaEmision_1"
+                                    placeholder="Fecha de Emision" required>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="sexo_1">Sexo</label>
-                            <input type="text" class="form-control" id="sexo_1">
-                        </div>
-                        <div class="form-group">
-                            <label for="dni_1">Número de DNI</label>
-                            <input type="text" class="form-control" id="dni_1">
-                        </div>
-                        <div class="form-group">
-                            <label for="numeroEjemplar_1">Número de Ejemplar</label>
-                            <input type="text" class="form-control" id="numeroEjemplar_1">
-                        </div>
-                        <div class="form-group">
-                            <label for="fechaNacimiento_1">Fecha de Nacimiento</label>
-                            <input type="text" class="form-control" id="fechaNacimiento_1">
-                        </div>
-                        <div class="form-group">
-                            <label for="fechaCaducidad_1">Fecha de Emision</label>
-                            <input type="text" class="form-control" id="fechaCaducidad_1">
-                        </div>
+
 
 
                     </form>
@@ -254,6 +318,7 @@
                 <!-- Pantalla de autoexclusion -->
                 <div class="tab-pane container fad mb-5" id="autoexclusion">
                     <form class="row g-3 mt-2">
+
                         <nav class="navbar mt-4" style="background-color: #ff4d4d;">
                             <div class="container-fluid">
                                 <a class="navbar-brand" href="#">
@@ -270,38 +335,137 @@
                             <input type="text" class="form-control" id="scan_2"
                                 placeholder="Escanee el DNI con pistola aquí...">
                         </div>
-                        <div class="form-group">
-                            <label for="numeroTramite_2">Número de Trámite</label>
-                            <input type="text" class="form-control" id="numeroTramite_2">
+
+
+                        <div class="form-group row mt-4">
+                            <div class="col-md-4 mb-3">
+                                <label for="numeroTramite_2">Número de Trámite</label>
+                                <input type="text" class="form-control" id="numeroTramite_2"
+                                    placeholder="Número de Trámite" required readonly>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="apellido_2">Apellido</label>
+                                <input type="text" class="form-control" id="apellido_2" placeholder="Apellido" required>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="nombre_2">Nombre</label>
+                                <input type="text" class="form-control" id="nombre_2" placeholder="Nombre" required>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="apellido_2">Apellido</label>
-                            <input type="text" class="form-control" id="apellido_2">
+
+                        <div class="form-group row">
+                            <div class="col-md-4 mb-3">
+                                <label for="sexo_2">Sexo</label>
+                                <input type="text" class="form-control" id="sexo_2" placeholder="Sexo" required>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="dni_2">Número de DNI</label>
+                                <input type="text" class="form-control" id="dni_2" placeholder="Número de DNI" required>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="numeroEjemplar_2">Número de Ejemplar</label>
+                                <input type="text" class="form-control" id="numeroEjemplar_2"
+                                    placeholder="Número de Ejemplar" required>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="nombre_2">Nombre</label>
-                            <input type="text" class="form-control" id="nombre_2">
+
+                        <div class="form-group row">
+                            <div class="col-md-4 mb-3">
+                                <label for="fechaNacimiento_2">Fecha de Nacimiento</label>
+                                <input type="text" class="form-control" id="fechaNacimiento_2"
+                                    placeholder="Fecha de Nacimiento" required>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="fechaEmision_2">Fecha de Emision</label>
+                                <input type="text" class="form-control" id="fechaEmision_2"
+                                    placeholder="Fecha de Emision" required>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="sexo_2">Sexo</label>
-                            <input type="text" class="form-control" id="sexo_2">
+
+
+                        <div class="form-group row">
+                            <div class="col-md-4 mb-3">
+                                <label for="validationServer01">Direccion</label>
+                                <input type="text" class="form-control" id="direccion_2" placeholder="Direccion"
+                                    required>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="validationServer02">Email</label>
+                                <input type="text" class="form-control" id="email_2" placeholder="Email" required>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="validationServer02">Telefono</label>
+                                <input type="text" class="form-control" id="telefono_2" placeholder="Telefono" required>
+                                <div class="valid-feedback">
+                                    Correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Por favor complete...
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="dni_2">Número de DNI</label>
-                            <input type="text" class="form-control" id="dni_2">
-                        </div>
-                        <div class="form-group">
-                            <label for="numeroEjemplar_2">Número de Ejemplar</label>
-                            <input type="text" class="form-control" id="numeroEjemplar_2"">
-                        </div>
-                        <div class=" form-group">
-                            <label for="fechaNacimiento_2">Fecha de Nacimiento</label>
-                            <input type="text" class="form-control" id="fechaNacimiento_2">
-                        </div>
-                        <div class="form-group">
-                            <label for="fechaCaducidad_2">Fecha de Emision</label>
-                            <input type="text" class="form-control" id="fechaCaducidad_2">
-                        </div>
+
+
                         <iframe id="miIframe"
                             src="https://loteria-de-cordoba.github.io/juego_responsable/tc_autoexclusion_permanente.html"
                             width="100%" height="500" style="border:2px solid red;"></iframe>
@@ -346,14 +510,37 @@
             });
         });
 
-        $("#scan_1").on('input', function () {
 
+        function validarCampo(obj) {
+            if (obj.val() != "") {
+                obj.removeClass("is-invalid").addClass("is-valid");
+            } else {
+                obj.removeClass("is-valid").addClass("is-invalid");
+            }
+        }
+
+        $("#scan_1").on('input', function () {
             var dataString = $(this).val();
             var dataArray = dataString.split('"');
 
+            function transformDate(fecha){
+                var dataArray = dataString.split('-');
+                return dataArray[1] + '/' + dataArray[0] + '/' + dataArray[2];
+            }
+
             function isDateValid(dateStr) {
                 return !isNaN(new Date(dateStr));
+
+                // DD/MM/YYYY
+                // console.log(isDateValid("15/05/2019")); // false
+
+                // MM/DD/YYYY
+                // console.log(isDateValid("05/15/2019")); // true
+
+                // YYYY/MM/DD
+                // console.log(isDateValid("2019/05/15")); // true
             }
+
             $("#numeroTramite_1").val(dataArray[0]);
             $("#apellido_1").val(dataArray[1]);
             $("#nombre_1").val(dataArray[2]);
@@ -361,16 +548,30 @@
             $("#dni_1").val(dataArray[4]);
             $("#numeroEjemplar_1").val(dataArray[5]);
             $("#fechaNacimiento_1").val(dataArray[6]);
-            $("#fechaCaducidad_1").val(dataArray[7]);
-            console.log(isDateValid($("#fechaCaducidad_1").val().replace('-', '/')));
-            if (isDateValid($("#fechaCaducidad_1").val().replace('-', '/'))) {
+            $("#fechaEmision_1").val(dataArray[7]);
+
+            validarCampo($("#numeroTramite_1"));
+            validarCampo($("#apellido_1"));
+            validarCampo($("#nombre_1"));
+            validarCampo($("#sexo_1"));
+            validarCampo($("#dni_1"));
+            validarCampo($("#numeroEjemplar_1"));
+            validarCampo($("#fechaNacimiento_1"));
+            validarCampo($("#fechaEmision_1"));
+
+
+            console.log(transformDate($("#fechaEmision_1").val()), isDateValid(transformDate($("#fechaEmision_1").val())));
+            // if (isDateValid($("#fechaEmision_1").val().replace('-', '/'))) {
+            if (transformDate(isDateValid($("#fechaEmision_1").val()))) {
                 consultarApiRestScanner();
             }
         });
 
         $("#scan_2").on('input', function () {
+
             var dataString = $(this).val();
             var dataArray = dataString.split('"');
+
 
             $("#numeroTramite_2").val(dataArray[0]);
             $("#apellido_2").val(dataArray[1]);
@@ -379,8 +580,20 @@
             $("#dni_2").val(dataArray[4]);
             $("#numeroEjemplar_2").val(dataArray[5]);
             $("#fechaNacimiento_2").val(dataArray[6]);
-            $("#fechaCaducidad_2").val(dataArray[7]);
+            $("#fechaEmision_2").val(dataArray[7]);
+
+            validarCampo($("#numeroTramite_2"));
+            validarCampo($("#apellido_2"));
+            validarCampo($("#nombre_2"));
+            validarCampo($("#sexo_2"));
+            validarCampo($("#dni_2"));
+            validarCampo($("#numeroEjemplar_2"));
+            validarCampo($("#fechaNacimiento_2"));
+            validarCampo($("#fechaEmision_2"));
         });
+
+
+
 
         console.log("ready!");
 
@@ -405,7 +618,7 @@
         $("#dni_1").val("");
         $("#numeroEjemplar_1").val("");
         $("#fechaNacimiento_1").val("");
-        $("#fechaCaducidad_1").val("");
+        $("#fechaEmision_1").val("");
 
         //autoexclusion
         $('#scan_2').val("");
@@ -416,7 +629,7 @@
         $("#dni_2").val("");
         $("#numeroEjemplar_2").val("");
         $("#fechaNacimiento_2").val("");
-        $("#fechaCaducidad_2").val("");
+        $("#fechaEmision_2").val("");
 
         //alertas
         $('#alert_1').hide();
@@ -433,7 +646,7 @@
         $('#alert_8').hide();
         $('#loading_2').hide();
 
-        $('#scan_1').focus();
+        // $('#scan_2').focus();
 
     }
 
@@ -506,11 +719,13 @@
         }
 
         headers = {
-            accion: 'consulta'
+            accion: 'registro-consulta'
         };
 
 
         variables = {
+            nombre: $('#nombre_1').val(),
+            apellido: $('#apellido_1').val(),
             dni: $('#dni_1').val(),
             sexo: $('#sexo_1').val(),
             anio: dataArray[2],
@@ -527,13 +742,14 @@
         $.ajax({
             type: "POST",
             //url: 'https://localhost/control-ingreso-salas/index.php',
+            // url: 'https://localhost/juego_responsable/autoexclusion/index.php',
             url: 'https://late-agenciero.loteriacba.com.ar/ingreso-backend-php-oci/index.php',
             data: JSON.stringify(variables),
             headers: headers,
             dataType: 'json'
         }).done(function (data) {
             // alert("Data Loaded: " + data);
-            console.log(data);
+            console.log('Resultado consulta:', data);
             var obj = jQuery.parseJSON(data);
             console.log(obj);
             if (obj.message === "Excluded gambler" && obj.type === "EMPLEADO") {
@@ -543,6 +759,12 @@
                 $('#alert_4').hide();
                 $('#loading').hide();
             } else if (obj.message === "Invalid person") {
+
+                // Sonido
+                // var snd = new Audio('tonos/alerta-nextel-ringtones.mp3');
+                // snd.play();
+                // setTimeout(function () { alert("Thank you!") }, 6000);
+
                 $('#alert_1').show();
                 $('#alert_2').hide();
                 $('#alert_3').hide();
@@ -615,7 +837,7 @@
 
         $.ajax({
             type: "POST",
-            //url: 'https://localhost/control-ingreso-salas/index.php',
+            //url: 'https://localhost/control-ingreso-salas/index.php',            
             url: 'https://late-agenciero.loteriacba.com.ar/ingreso-backend-php-oci/index.php',
             data: JSON.stringify(variables),
             headers: headers,
@@ -694,6 +916,7 @@
         $.ajax({
             type: "POST",
             //url: 'https://localhost/control-ingreso-salas/index.php',
+            // url: 'https://localhost/juego_responsable/autoexclusion/index.php',
             url: 'https://late-agenciero.loteriacba.com.ar/ingreso-backend-php-oci/index.php',
             data: JSON.stringify(variables),
             headers: headers,
@@ -711,15 +934,17 @@
                     showConfirmButton: false,
                     timer: 3000
                 }).then((result) => {
-                reiniciarForm();
-            });
+                    reiniciarForm();
+                });
             } else {
                 Swal.fire({
                     position: 'center',
                     icon: 'error',
-                    title: 'No se pudo autoexcliuir!...',
+                    html: obj.message,
                     showConfirmButton: false,
                     timer: 3000
+                }).then((result) => {
+                    reiniciarForm();
                 });
             }
 
@@ -741,4 +966,8 @@
 00127457333"MONTE JJJ"ALBERTO MARTIN"M"22792000"A"21-08-1972"03-08-2012
 
 00127458888"MONTE JJJ"ALBERTO MARTIN"M"22792444"A"21-08-1972"03-08-2012
+
+
+MIO
+00155064851"PAEZ"PABLO HUMBERTO"M"21400329"B"29-12-1969"18-12-2012
  -->
